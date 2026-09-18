@@ -16,9 +16,13 @@ logging.basicConfig(level=settings.log_level)
 
 @asynccontextmanager
 async def lifespan(_: FastAPI) -> AsyncIterator[None]:
-    # Sprint 1 : creation directe des tables locales MGA (users, refresh_tokens).
-    # TODO(sprint2): remplacer par des migrations Alembic versionnees.
-    Base.metadata.create_all(bind=engine)
+    if settings.environment == "development":
+        # Confort de developpement local uniquement. En staging/production,
+        # le schema est gere par Alembic (`alembic upgrade head`), execute
+        # explicitement au deploiement (voir DEPLOYMENT.md) : on ne veut
+        # jamais qu'un demarrage d'API modifie silencieusement le schema
+        # d'une base partagee.
+        Base.metadata.create_all(bind=engine)
     yield
 
 

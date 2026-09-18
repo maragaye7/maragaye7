@@ -1,0 +1,20 @@
+# Reverse proxy HTTPS automatique (Let's Encrypt) vers MGA API.
+# {$API_DOMAIN} est substitue par la variable d'environnement du meme nom
+# (definie dans deploy/.env), ex: api.mgassistances.com
+
+{$API_DOMAIN} {
+	reverse_proxy api:8000
+
+	encode gzip
+
+	header {
+		Strict-Transport-Security "max-age=31536000; includeSubDomains"
+		X-Content-Type-Options "nosniff"
+		X-Frame-Options "DENY"
+	}
+
+	log {
+		output stdout
+		format console
+	}
+}

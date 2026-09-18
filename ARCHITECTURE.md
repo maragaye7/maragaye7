@@ -8,6 +8,10 @@ offline, sécurité, plan de tests, plan des sprints.
 Le code du **Sprint 1** (section 18 du brief) a été développé dans ce même
 commit, dans `backend/` et `mobile/`.
 
+Le déploiement (Docker Compose + Alembic pour le backend, EAS Build/Submit
+pour le mobile) est documenté dans `DEPLOYMENT.md` et
+`MOBILE_DEPLOYMENT.md`.
+
 ---
 
 ## 1. Architecture finale proposée

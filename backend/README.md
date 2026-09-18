@@ -30,3 +30,15 @@ pytest
 
 Tous les appels Dolibarr sont mockes dans les tests (aucune requete reelle
 vers `https://mgassistances.com/crm`).
+
+## Migrations (Alembic)
+
+```bash
+alembic upgrade head          # appliquer les migrations
+alembic revision --autogenerate -m "..."   # apres une modification de modele
+alembic check                 # verifie qu'aucun changement de modele n'a ete oublie
+```
+
+## Deploiement
+
+Voir `../DEPLOYMENT.md` (Docker Compose + PostgreSQL + Caddy sur un VPS).

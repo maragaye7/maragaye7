@@ -10,6 +10,7 @@ venv/
 .env
 backend/.env
 mobile/.env
+deploy/.env
 
 # Node / Expo
 node_modules/
@@ -18,6 +19,14 @@ mobile/node_modules/
 mobile/.expo/
 dist/
 web-build/
+
+# Identifiants de signature mobile (jamais commit)
+mobile/google-play-service-account.json
+mobile/*.p8
+mobile/*.p12
+mobile/*.mobileprovision
+mobile/*.jks
+mobile/*.keystore
 
 # OS
 .DS_Store
