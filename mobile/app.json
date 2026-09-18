@@ -1,0 +1,29 @@
+{
+  "expo": {
+    "name": "MGA Mobile",
+    "slug": "mga-mobile",
+    "scheme": "mgamobile",
+    "version": "0.1.0",
+    "orientation": "portrait",
+    "userInterfaceStyle": "light",
+    "newArchEnabled": true,
+    "icon": "./assets/icon.png",
+    "splash": {
+      "backgroundColor": "#F4F7F5"
+    },
+    "ios": {
+      "supportsTablet": true,
+      "bundleIdentifier": "sn.mgassistance.mgamobile"
+    },
+    "android": {
+      "package": "sn.mgassistance.mgamobile",
+      "adaptiveIcon": {
+        "backgroundColor": "#F4F7F5"
+      }
+    },
+    "plugins": ["expo-router", "expo-secure-store"],
+    "extra": {
+      "apiBaseUrl": "http://localhost:8000/api/v1"
+    }
+  }
+}

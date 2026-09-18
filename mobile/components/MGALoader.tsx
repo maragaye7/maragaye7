@@ -1,0 +1,21 @@
+import { ActivityIndicator, StyleSheet, Text, View } from "react-native";
+
+import { colors, spacing, typography } from "@/utils/theme";
+
+interface MGALoaderProps {
+  label?: string;
+}
+
+export function MGALoader({ label = "Chargement..." }: MGALoaderProps) {
+  return (
+    <View style={styles.container}>
+      <ActivityIndicator color={colors.primary} size="large" />
+      <Text style={styles.label}>{label}</Text>
+    </View>
+  );
+}
+
+const styles = StyleSheet.create({
+  container: { flex: 1, alignItems: "center", justifyContent: "center", gap: spacing.sm, padding: spacing.lg },
+  label: { ...typography.body, color: colors.textMuted },
+});
