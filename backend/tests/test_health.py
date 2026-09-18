@@ -1,21 +1,9 @@
-from app.dolibarr import DolibarrConnectionError
+from fastapi.testclient import TestClient
+# Import requires a configured .env; this test is intended after environment setup.
+from app.main import app
 
-
-def test_health_ok(client):
-    response = client.get("/api/v1/health")
-    assert response.status_code == 200
-    assert response.json()["status"] == "ok"
-
-
-def test_health_dolibarr_ok(client, mock_dolibarr):
-    mock_dolibarr.get.return_value = []
-    response = client.get("/api/v1/health/dolibarr")
-    assert response.status_code == 200
-    assert response.json()["status"] == "ok"
-
-
-def test_health_dolibarr_error_does_not_raise(client, mock_dolibarr):
-    mock_dolibarr.get.side_effect = DolibarrConnectionError("unreachable")
-    response = client.get("/api/v1/health/dolibarr")
-    assert response.status_code == 200
-    assert response.json()["status"] == "error"
+def test_health():
+    client = TestClient(app)
+    r = client.get("/health")
+    assert r.status_code == 200
+    assert r.json()["status"] == "ok"

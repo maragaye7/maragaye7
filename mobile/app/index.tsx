@@ -1,8 +1,2 @@
 import { Redirect } from "expo-router";
-
-import { useAuthStore } from "@/stores/authStore";
-
-export default function Index() {
-  const accessToken = useAuthStore((s) => s.accessToken);
-  return <Redirect href={accessToken ? "/dashboard" : "/login"} />;
-}
+export default function Index(){ return <Redirect href="/login" />; }
