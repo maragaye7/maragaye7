@@ -34,6 +34,11 @@ npm run start
 
 Pour tester sur un téléphone physique, `EXPO_PUBLIC_API_URL` doit pointer vers l'IP LAN de l'ordinateur, par exemple `http://192.168.1.20:8000`.
 
+## Déploiement
+
+Voir [`DEPLOYMENT.md`](./DEPLOYMENT.md) pour déployer le backend en
+production (Render/Railway/Docker) et distribuer l'app mobile (EAS Build).
+
 ## Sprint 1
 1. Login MGA
 2. Dashboard
